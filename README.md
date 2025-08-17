@@ -30,10 +30,13 @@
 - CMake 3.5+
 
 ### Инструкция
-* mkdir build && cd build
-* cmake .. -DBUILD_SHARED_LIBS=ON // включить динамическую сборку
-* // cmake .. -DBUILD_SHARED_LIBS=OFF // включить динамическую сборку
-* cmake --build . --parallel
+```
+mkdir build && cd build
+cmake .. -DBUILD_SHARED_LIBS=ON // включить динамическую сборку
+// cmake .. -DBUILD_SHARED_LIBS=OFF // включить динамическую сборку
+cmake --build . --parallel
+```
+
 ### Опции сборки
 | Опция                | По умолчанию | Описание                     |
 |----------------------|--------------|------------------------------|
