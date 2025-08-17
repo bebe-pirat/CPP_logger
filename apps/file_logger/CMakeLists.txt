@@ -6,7 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # sources
-set(FILE_LOGGER_SOURCES src/main.cpp)
+set(FILE_LOGGER_SOURCES src/main.cpp src/help_func.cpp)
+set(FILE_LOGGER_INCLUDES include/help_func.h)
+
+# target for clang-format
+include(clang-format.cmake)
 
 # Добавляем поддиректорию с библиотекой
 add_subdirectory(../../libs/logger ${CMAKE_BINARY_DIR}/libs/logger)
