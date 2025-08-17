@@ -5,9 +5,6 @@ project(stat_collector)
 set(STAT_COLLECTOR_SOUCRES src/main.cpp src/stat_collector.cpp)
 set(STAT_COLLECTOR_INCLUDES include/stat_collector.h)
 
-# Добавляем поддиректорию с библиотекой
-add_subdirectory(../../libs/logger ${CMAKE_BINARY_DIR}/libs/logger)
-
 # Создаем исполняемый файл
 add_executable(stat_collector ${STAT_COLLECTOR_SOUCRES})
 

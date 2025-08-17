@@ -5,9 +5,6 @@ project(file_logger VERSION 1.0.0 LANGUAGES CXX)
 set(FILE_LOGGER_SOURCES src/main.cpp src/help_func.cpp)
 set(FILE_LOGGER_INCLUDES include/help_func.h)
 
-# Добавляем поддиректорию с библиотекой
-add_subdirectory(../../libs/logger ${CMAKE_BINARY_DIR}/libs/logger)
-
 # Создаем исполняемый файл
 add_executable(file_logger ${FILE_LOGGER_SOURCES})
 

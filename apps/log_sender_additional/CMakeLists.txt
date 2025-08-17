@@ -4,9 +4,6 @@ project(log_sender)
 # sources
 set(LOG_SENDER_SOURCES src/main.cpp)
 
-# Добавляем поддиректорию с библиотекой
-add_subdirectory(../../libs/logger ${CMAKE_BINARY_DIR}/libs/logger)
-
 # Создаем исполняемый файл
 add_executable(log_sender ${LOG_SENDER_SOURCES})
 
