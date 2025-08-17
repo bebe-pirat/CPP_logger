@@ -29,7 +29,7 @@ Severity_level get_level() {
 
 void write_thread(FileLogger *logger, Severity_level level,
                   const std::string &message) {
-    logger->write(level, message);
+  logger->write(level, message);
 }
 
 void change_thread(FileLogger *logger, Severity_level level) {

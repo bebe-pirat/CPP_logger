@@ -17,7 +17,12 @@ int main(int argc, char *argv[]) {
                 << "1. Ввод сообщения, \n"
                 << "2. Изменение уровня логгера по умолчанию, \n"
                 << "3. Выход из программы. \n";
-      std::cin >> choice;
+
+      while (!(std::cin >> choice)) {
+        std::cout << "Ошибка! Введите число от 1 до 3: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      }
 
       switch (choice) {
       case 1: {
@@ -52,7 +57,7 @@ int main(int argc, char *argv[]) {
       case 3:
         break;
       default:
-        "Такого номера нет! Попробуйте ввести снова!";
+        std::cout << "Число вне диапозона!\n";
         break;
       }
 
