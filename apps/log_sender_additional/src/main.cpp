@@ -1,6 +1,7 @@
 #include "logger.h"
 #include <thread>
 
+// принимает порт и ip адрес, посылает 100 сообщений с интервалом 1 секунда через сокет
 int main(int argc, char *argv[]) {
   if (argc != 3) {
     std::cerr << "Использование: " << argv[0] << " <порт> <ip адрес>\n";
