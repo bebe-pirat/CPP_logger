@@ -47,7 +47,7 @@ void StatCollector::process_message(std::string message) {
   levels_counts_[level]++;
 
   // Обновление статистики по длине
-  if (length < min_lenght_)
+  if (length < min_lenght_ || min_lenght_ == 0)
     min_lenght_ = length;
   if (length > max_lenght_)
     max_lenght_ = length;
