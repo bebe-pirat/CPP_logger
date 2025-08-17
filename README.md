@@ -11,6 +11,7 @@
 
 ## Структура проекта
 
+```
 .
 ├── libs/               # Исходный код библиотеки
 │   └── logger/
@@ -20,6 +21,8 @@
 │   └── log_stat_collector/  # Консольная программа для сбора статики
 ├── CMakeLists.txt      # Корневой файл сборки
 └── README.md           # Этот файл
+```
+
 ## Сборка
 
 ### Требования
@@ -27,10 +30,10 @@
 - CMake 3.5+
 
 ### Инструкция
-mkdir build && cd build
-cmake .. -DBUILD_SHARED_LIBS=ON // включить динамическую сборку
-// cmake .. -DBUILD_SHARED_LIBS=OFF // включить динамическую сборку
-cmake --build . --parallel
+* mkdir build && cd build
+* cmake .. -DBUILD_SHARED_LIBS=ON // включить динамическую сборку
+* // cmake .. -DBUILD_SHARED_LIBS=OFF // включить динамическую сборку
+* cmake --build . --parallel
 ### Опции сборки
 | Опция                | По умолчанию | Описание                     |
 |----------------------|--------------|------------------------------|
@@ -50,14 +53,17 @@ cmake --build . --parallel
   
 - Потокобезопасная запись
 - Два варианта интерфейса:
- 
+```
   // Файловый логгер
   FileLogger(Severity_level level, const std::string& filename);
-  
+```
+```
   // Сетевой логгер 
   SocketLogger(Severity_level level, unsigned short port, const std::string& host);
-  
+```
+
 ### Пример использования
+```
 #include <logger.h>
 
 int main() {
@@ -65,10 +71,14 @@ int main() {
     logger.write(Severity_level::DEBUG, "Отладочное сообщение"); // Не запишется
     logger.write(Severity_level::ERROR, "Критическая ошибка!");
 }
+```
+
 ## Консольное приложение
 
 ### Запуск
+```
 ./apps/file_logger/file_logger <файл> <уровень>
+```
 ### Возможности
 - Интерактивное меню:
  
@@ -82,7 +92,10 @@ int main() {
 ## Сервер статистики
 
 ### Запуск
+```
 ./apps/log_stat_collector/stat_collector <порт> <количествосообщений> <временной промежуток>
+```
+
 ### Возможности
 - Сбор статистики в реальном времени:
   - Общее количество сообщений
