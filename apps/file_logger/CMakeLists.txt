@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.5)
+project(file_logger VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# sources
+set(FILE_LOGGER_SOURCES src/main.cpp)
+
+# Добавляем поддиректорию с библиотекой
+add_subdirectory(../../libs/logger ${CMAKE_BINARY_DIR}/libs/logger)
+
+# Создаем исполняемый файл
+add_executable(file_logger ${FILE_LOGGER_SOURCES})
+
+# Связываем с библиотекой
+target_link_libraries(file_logger PRIVATE logger)
+
+# Добавляем пути к заголовочным файлам
+target_include_directories(file_logger PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/libs/logger/include
+)
