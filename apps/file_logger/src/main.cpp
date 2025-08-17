@@ -17,11 +17,16 @@ int main(int argc, char *argv[]) {
                 << "1. Ввод сообщения, \n"
                 << "2. Изменение уровня логгера по умолчанию, \n"
                 << "3. Выход из программы. \n";
-
+      
+      // обработка ситуации, когда пользователь ввел вместо числа что-то другое (цикл, который закончится, когда пользователь введет число)
       while (!(std::cin >> choice)) {
         std::cout << "Ошибка! Введите число от 1 до 3: ";
-        std::cin.clear();
+        
+        // игноруем все, что ввел пользователь до конца строки
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
+        // убираем флаг ошибки
+        std::cin.clear();
       }
 
       switch (choice) {
@@ -35,6 +40,8 @@ int main(int argc, char *argv[]) {
 
         try {
           Severity_level level = get_level();
+
+          // создаем поток и добавляем его в очередь
           threads.emplace_back(
               std::make_unique<std::thread>(write_thread, &logger, level, str));
         } catch (std::runtime_error e) {
